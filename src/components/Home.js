@@ -1,33 +1,18 @@
 import React, {useState,useRef,useEffect} from 'react'
 import '../App.css';
 import firebase from './Firebase';
+import Items from './Items';
 export default function Home(){
 
     useEffect(()=>{
-        document.title = 'Project';
-    })
+        document.title = 'Project'
+    },[])
 
     const [uid,setuid] = useState('');
     const [file,setfile] = useState(null);
     const [load,setload] = useState(false);
+    const [ar,setar] = useState(null);
     let bu = 'LOAD';
-    let fileref = useRef(null);
-    const op=()=>{
-        console.log(file);
-        window.open(file,'_blank');
-    }
-    const pr=()=>{
-        fileref.current.focus();
-        const iframe = document.frames
-      ? document.frames['fr']
-      : document.getElementById('fr');
-    const iframeWindow = iframe.contentWindow || iframe;
-
-    iframe.focus();
-    iframeWindow.print();
-
-    return false;
-    }
     let stylee={
         display:'flex',
         flexDirection:'column',
@@ -41,8 +26,10 @@ export default function Home(){
         fontSize:16
     }
     let b=null;
+    let ba = [];
     const upd=()=>{
         setfile(null);
+        setar(null);
         if(uid==''){
             alert('Please fill the uniqueid!!');
         }else{
@@ -50,19 +37,15 @@ export default function Home(){
             firebase.database().ref('pdfs').orderByChild('id').equalTo(uid).once('value',(snapshot)=>{
                 if(snapshot.exists()){
                     var k = Object.keys(snapshot.val())
-                    console.log(snapshot.val()[k[0]].uri);
-                    var xhr = new XMLHttpRequest();
-                    xhr.responseType = 'blob';
-                    xhr.onload = function(event) {
-                        const filer = new Blob([xhr.response], { type: 'application/pdf' });
-            
-                        const fileURL = URL.createObjectURL(filer);
-            
-                        setfile(fileURL);
-                    };
-                    xhr.open('GET', snapshot.val()[k[0]].uri);
-                    xhr.send();
-                    // setfile('http://www.africau.edu/images/default/sample.pdf')
+                    var lo = snapshot.val()[k[0]].uri.length;
+                    var arr=[]
+                    for(var i=0;i<lo;i++){
+                        arr.push(snapshot.val()[k[0]].uri[i])
+                        // console.log(snapshot.val()[k[0]].uri[i])
+                    }
+                    setar(arr);
+                    setfile(arr[0]);
+                    
                 }else{
                     alert('File not exist')
                     setfile('File not exists!!')
@@ -82,28 +65,23 @@ export default function Home(){
 
     if(file!=null){
         if(file=='File not exists!!'){
-            b=<p>File doesn't exists!!</p>;
+            b=<p>Files doesn't exists!!</p>;
         }else{
-            
-            
-            b=(<div><p>File exists!!</p>
-               <iframe src={file} width='200' height='240' id='fr' ref={fileref} onFocus={()=>console.log('pdf focused')} ></iframe>
-                
-                <div className='it'>
-                    <p className='bo' onClick={op} >OPEN</p>
-                    <p className='bo' onClick={pr} >PRINT</p>
-                    {/* <ReactToPrint
-                       trigger={() => {
-                               return <p className='bo'>PRINT</p>;
-                               }}
-                        content={file}
-                    /> */}
-                    
-                </div></div>);
+           b=null
         }
     }else{
         b = null;
     }
+
+    if(ar!=null){
+        ba=[]
+        ar.map((item,index)=>{
+            ba.push(
+                <Items data={item} key={(index).toString()} />
+            )
+        })
+    }
+
     return(
         <div className='App' >
             <div className='w-m'>
@@ -114,7 +92,7 @@ export default function Home(){
                     {bu}
                 </div>
                 {b}
-                
+                {ba}
                 
             </div>
         </div>
