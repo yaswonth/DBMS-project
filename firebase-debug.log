@@ -1,0 +1,73 @@
+[debug] [2020-09-09T14:04:14.192Z] ----------------------------------------------------------------------
+[debug] [2020-09-09T14:04:14.194Z] Command:       /usr/local/bin/firebase /home/yaswonth/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy
+[debug] [2020-09-09T14:04:14.194Z] CLI Version:   8.10.0
+[debug] [2020-09-09T14:04:14.194Z] Platform:      linux
+[debug] [2020-09-09T14:04:14.194Z] Node Version:  v12.18.1
+[debug] [2020-09-09T14:04:14.195Z] Time:          Wed Sep 09 2020 19:34:14 GMT+0530 (India Standard Time)
+[debug] [2020-09-09T14:04:14.195Z] ----------------------------------------------------------------------
+[debug] [2020-09-09T14:04:14.195Z] 
+[debug] [2020-09-09T14:04:14.200Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-09-09T14:04:14.201Z] > authorizing via signed-in user
+[debug] [2020-09-09T14:04:14.201Z] [iam] checking project shyam-4ff74 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-09-09T14:04:14.203Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/shyam-4ff74:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-09-09T14:04:16.105Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 09 Sep 2020 14:04:15 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1148","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-09-09T14:04:16.109Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/shyam-4ff74  
+ 
+[debug] [2020-09-09T14:04:17.286Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 09 Sep 2020 14:04:17 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'shyam-4ff74'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2020-09-09T14:04:17.294Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/shyam-4ff74/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-09-09T14:04:19.698Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 09 Sep 2020 14:04:19 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[shyam-4ff74]: beginning deploy... 
+[info] i  hosting[shyam-4ff74]: found 18 files in build 
+[debug] [2020-09-09T14:04:20.418Z] [hosting] hash cache [YnVpbGQ] stored for 18 files
+[debug] [2020-09-09T14:04:20.419Z] [hosting][hash queue][FINAL] {"max":691,"min":12,"avg":55.611111111111114,"active":0,"complete":18,"success":18,"errored":0,"retried":0,"total":18,"elapsed":701}
+[debug] [2020-09-09T14:04:20.419Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/shyam-4ff74/versions/bf4c75894c01f41d:populateFiles  
+ <request body omitted>
+[debug] [2020-09-09T14:05:21.131Z] [populateQueue] Retrying task index 0
+[debug] [2020-09-09T14:05:21.132Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/shyam-4ff74/versions/bf4c75894c01f41d:populateFiles  
+ <request body omitted>
+[debug] [2020-09-09T14:05:23.083Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 09 Sep 2020 14:05:22 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-09-09T14:05:23.091Z] [hosting][populate queue][FINAL] {"max":1953,"min":1953,"avg":1953,"active":0,"complete":1,"success":1,"errored":0,"retried":1,"total":1,"elapsed":62674}
+[debug] [2020-09-09T14:05:23.091Z] [hosting] uploads queued: 6
+[debug] [2020-09-09T14:05:27.114Z] [hosting][upload queue][FINAL] {"max":4030,"min":2417,"avg":2848.3333333333335,"active":0,"complete":6,"success":6,"errored":0,"retried":0,"total":6,"elapsed":4030}
+[info] ✔  hosting[shyam-4ff74]: file upload complete 
+[debug] [2020-09-09T14:05:27.116Z] [hosting] deploy completed after 67417ms
+[debug] [2020-09-09T14:05:27.392Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "shyam-4ff74"
+    },
+    "site": "shyam-4ff74",
+    "version": "sites/shyam-4ff74/versions/bf4c75894c01f41d"
+  }
+]
+[info] i  hosting[shyam-4ff74]: finalizing version... 
+[debug] [2020-09-09T14:05:27.393Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/shyam-4ff74/versions/bf4c75894c01f41d?updateMask=status  
+ {"status":"FINALIZED"}
+[debug] [2020-09-09T14:05:29.270Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 09 Sep 2020 14:05:29 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-09-09T14:05:29.270Z] [hosting] finalized version for shyam-4ff74: {"name":"sites/shyam-4ff74/versions/bf4c75894c01f41d","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2020-09-09T14:04:19.329065Z","createUser":{"email":"shy.writer.am@gmail.com"},"finalizeTime":"2020-09-09T14:05:29.146317Z","finalizeUser":{"email":"shy.writer.am@gmail.com"}}
+[info] ✔  hosting[shyam-4ff74]: version finalized 
+[info] i  hosting[shyam-4ff74]: releasing new version... 
+[debug] [2020-09-09T14:05:29.272Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/shyam-4ff74/releases?version_name=sites/shyam-4ff74/versions/bf4c75894c01f41d  
+ {"message":null}
+[debug] [2020-09-09T14:09:27.834Z] Error: read ECONNRESET
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:205:27)
+[error] 
+[error] Error: Server Error. read ECONNRESET

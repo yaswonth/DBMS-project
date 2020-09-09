@@ -1,0 +1,158 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  background-color: teal;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.w-m{
+  width: 30vw;
+  padding: 10px;
+  background-color: #fff;
+  display: flex;
+  border: 0px;
+  box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  flex-direction: column;
+}
+
+.inp{
+  display: flex;
+  /* width: 100%; */
+  background-color: #fff;
+  border-radius: 3px;
+  border: 2px solid teal;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.but{
+  display: flex;
+  /* width: 100%; */
+  background-color: teal;
+  border-radius: 3px;
+  margin-top: 10px;
+  color: #fff;
+  padding: 5px 0px 5px 0px;
+  justify-content: center;
+  cursor: pointer;
+}
+.but:hover { 
+  background-color: rgb(0, 102, 128);
+}
+
+.new-choose{
+  height: 4vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  font-size: 13px;
+  color: white;
+  border: 0;
+  width: min-content;
+}
+.new-choose-bt{
+  width: 100%;
+  height: 4vh;
+  background-color: teal;
+  box-sizing: 0px;
+  border: 0px;
+  color: #fff;
+}
+.dash-ch-in{
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 4px 0px 4px 0px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.it{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.bo{
+  padding: 5px 10px 5px 10px;
+  background-color: teal;
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.bo:hover {
+  background-color: rgb(0, 102, 128);
+}
+.er-c{
+  width: 100%;
+  height: 100vh;
+  background-color: teal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.er-n{
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.er-t{
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  color: teal;
+  margin-bottom: 10px;
+}
+
+
+
+@media screen and (max-width:600px){
+  .w-m{
+    width: 90vw;
+    padding: 10px;
+    background-color: #fff;
+    display: flex;
+    border: 0px;
+    box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    flex-direction: column;
+  }
+  .new-choose{
+    height: 6vh;
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    font-size: 13px;
+    color: white;
+    border: 0;
+    width: min-content;
+  }
+  .new-choose-bt{
+    width: 100%;
+    height: 6vh;
+    background-color: teal;
+    box-sizing: 0px;
+    border: 0px;
+    color: #fff;
+  }
+  .dash-ch-in{
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 4px 0px 4px 0px;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+
