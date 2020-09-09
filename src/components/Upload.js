@@ -41,11 +41,43 @@ export default function Upload(){
                 setu('Loading...');
                 firebase.database().ref('pdfs').orderByChild('id').equalTo(uid).once('value',(snapshot)=>{
                     if(snapshot.exists()){
-                        setu(null);
-                        alert('unique id already exists!!');
-                    }else{
+                        var k = Object.keys(snapshot.val());
+                        var ac = snapshot.val()[k[0]].uri;
+                        var r = Math.ceil(Math.random()*100).toString();
                         var fname=fileref.current.files[0].name.split('.');
-                        let stor = firebase.storage().ref('pdfs/'+uid+'.'+fname[fname.length-1]);
+                        let stor = firebase.storage().ref('pdfs/'+uid+r+'.'+fname[fname.length-1]);
+                        let up = stor.put(fileref.current.files[0]);
+                        up.on('state_changed',
+                        (snapshot)=>{
+                            var m = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100) ;
+                            var prog = "pdf upload progress: "+m+"%";
+                            setu(prog);
+                        },
+                        (error)=>{
+                          setu(null);
+                        },
+                        ()=>{
+                            setu('wait...Uploading data...');
+                            
+                            stor.getDownloadURL().then(url=>{
+                                ac.push(url)
+                                firebase.database().ref('pdfs/'+k[0]).update({
+                                   id:snapshot.val()[k[0]].id,
+                                   uri:ac
+                               }).then(()=>{
+                               setu(null);
+                               
+                            })
+                            .catch(err=>{
+                               alert('Network issues...please try again!');
+                            });
+                               setu(null);
+                            });
+                        });
+                    }else{
+                        var r = Math.ceil(Math.random()*100).toString();
+                        var fname=fileref.current.files[0].name.split('.');
+                        let stor = firebase.storage().ref('pdfs/'+uid+r+'.'+fname[fname.length-1]);
                         let up = stor.put(fileref.current.files[0]);
                         up.on('state_changed',
                         (snapshot)=>{
@@ -61,7 +93,7 @@ export default function Upload(){
                             stor.getDownloadURL().then(url=>{
                                 firebase.database().ref('pdfs').push().set({
                                    id:uid,
-                                   uri:url
+                                   uri:[url]
                                }).then(()=>{
                                setu(null);
                                
